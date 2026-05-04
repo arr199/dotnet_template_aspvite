@@ -9,5 +9,21 @@
   "tags": {
     "language": "C#",
     "type": "project"
-  }
+  },
+  "sources": [
+    {
+      "modifiers": [
+        {
+          "exclude": [
+            "**/pnpm-lock.yaml",
+            "**/package-lock.json",
+            "**/node_modules/**",
+            "**/obj/**",
+            "**/bin/**",
+            "**/.git/**"
+          ]
+        }
+      ]
+    }
+  ]
 }
