@@ -2,10 +2,10 @@
 
 ## Install dependencies
 
-1 - cd ./ReactApp
-2 - pnpm i
+1. cd ./ReactApp
+2. pnpm i
 
 ## Start development server
 
-3 - pnpm dev
-4 - dotnet watch
+1. pnpm dev
+2. dotnet watch
