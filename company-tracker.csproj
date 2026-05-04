@@ -7,6 +7,16 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Content Include="Frontend\dist\**" CopyToOutputDirectory="PreserveNewest"></Content>
+    <Content Include="./ReactApp/dist/**" CopyToOutputDirectory="PreserveNewest">
+      <TargetPath>dist/%(RecursiveDir)%(Filename)%(Extension)</TargetPath>
+    </Content>
+  </ItemGroup>
+
+  <Target Name="BuildReactApp" BeforeTargets="BeforeBuild">
+    <Exec Command="pnpm build" WorkingDirectory="$(MSBuildProjectDirectory)/ReactApp" />
+  </Target>
+
+  <ItemGroup>
+    <PackageReference Include="Vite.AspNetCore" Version="2.4.1" />
   </ItemGroup>
 </Project>

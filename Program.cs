@@ -1,9 +1,9 @@
-var builder = WebApplication.CreateBuilder(
-    new WebApplicationOptions() { WebRootPath = "Frontend" }
-);
+using Vite.AspNetCore;
 
-// Add services to the container.
+var builder = WebApplication.CreateBuilder(new WebApplicationOptions() { WebRootPath = "dist" });
+
 builder.Services.AddControllersWithViews();
+builder.Services.AddViteServices();
 
 var app = builder.Build();
 
@@ -11,7 +11,6 @@ var app = builder.Build();
 if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Home/Error");
-    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
 }
 
@@ -20,9 +19,10 @@ app.UseRouting();
 
 app.UseAuthorization();
 
-app.MapStaticAssets();
-
-app.MapControllerRoute(name: "default", pattern: "{controller=Home}/{action=Index}/{id?}")
-    .WithStaticAssets();
-
+if (app.Environment.IsDevelopment())
+{
+    app.UseViteDevelopmentServer(true);
+}
+app.UseStaticFiles();
+app.MapControllerRoute(name: "default", pattern: "{controller=Home}/{action=Index}/{id?}");
 app.Run();

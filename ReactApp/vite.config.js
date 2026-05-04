@@ -6,9 +6,14 @@ import babel from "@rolldown/plugin-babel";
 export default defineConfig({
   plugins: [react(), babel({ presets: [reactCompilerPreset()] })],
   build: {
+    manifest: true,
     rolldownOptions: {
+      input: {
+        home: "src/pages/home.jsx",
+        privacy: "src/pages/privacy.jsx",
+      },
       output: {
-        entryFileNames: "assets/index.js",
+        entryFileNames: "assets/[name].js",
         assetFileNames: "assets/[name][extname]",
       },
     },
@@ -16,7 +21,7 @@ export default defineConfig({
   server: {
     proxy: {
       "/api": {
-        target: "https://localhost:7000", // your ASP.NET HTTPS port
+        target: "https://localhost:7059",
         changeOrigin: true,
         secure: false,
       },
