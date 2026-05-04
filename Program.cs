@@ -23,6 +23,7 @@ if (app.Environment.IsDevelopment())
 {
     app.UseViteDevelopmentServer(true);
 }
+
 app.UseStaticFiles();
 app.MapControllerRoute(name: "default", pattern: "{controller=Home}/{action=Index}/{id?}");
 app.Run();

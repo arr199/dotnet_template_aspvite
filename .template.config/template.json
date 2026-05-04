@@ -1,0 +1,13 @@
+{
+  "$schema": "http://json.schemastore.org/template",
+  "author": "Arr",
+  "classifications": ["ASP", "React", "Vite"],
+  "identity": "aspvite",
+  "name": "Fullstack ASP MVC + Vite React ",
+  "shortName": "aspvite",
+  "sourceName": "aspvite",
+  "tags": {
+    "language": "C#",
+    "type": "project"
+  }
+}
